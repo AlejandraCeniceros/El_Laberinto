@@ -40,13 +40,13 @@ def actualizar(window):
     estadoAbajo = glfw.get_key(window, glfw.KEY_DOWN)
 
     if estadoIzq == glfw.PRESS:
-        xCarrito -=  0.01
+        xCarrito -=  0.0035
     if estadoDer == glfw.PRESS:
-        xCarrito +=  0.01
+        xCarrito +=  0.0035
     if estadoAbajo == glfw.PRESS:
-        yCarrito -= 0.01
+        yCarrito -= 0.0035
     if estadoArriba == glfw.PRESS:
-        yCarrito += 0.01
+        yCarrito += 0.0035
 
     checar_colisiones()
 
@@ -64,9 +64,9 @@ def dibujarCarrito():
     else:
         glColor3f(0.0,0.0,0.0)
 
-    glVertex3f(0.0,0.05,0.0)
-    glVertex3f(-0.05,-0.05,0.0)
-    glVertex3f(0.05,-0.05,0.0)
+    glVertex3f(0.0,0.015,0.0)
+    glVertex3f(-0.015,-0.015,0.0)
+    glVertex3f(0.015,-0.015,0.0)
     
 
     glEnd()
@@ -103,15 +103,28 @@ def paredes1():
     glEnd()
     glPopMatrix()
 
+    
+
 def paredes2():
     glPushMatrix()
     glTranslate(xObstaculo, yObstaculo, 0.0)
     glBegin(GL_QUADS)
-    glColor3f(0.0,.0,0.0)
+    glColor3f(0.0,0.0,0.0)
     glVertex3f(0.05,-0.07,0.0)
     glVertex3f(0.05,-0.20,0.0)
     glVertex3f(-0.2,-0.20,0.0)
     glVertex3f( -0.2,-0.07,0.0) 
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(0.001, -0.1, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.05, 0.0, 0.0)
+    glVertex3f(0.05, 0.2, 0.0)
+    glVertex3f(0.0, 0.2, 0.0)
     glEnd()
     glPopMatrix()
 
@@ -139,16 +152,157 @@ def paredes():
     glEnd()
     glPopMatrix()
 
+def caminos():
+    glPushMatrix()
+    glTranslate(-0.5, 0.01, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.04, 0.0)
+    glVertex3f(0.4, 0.04, 0.0)
+    glVertex3f(0.4, 0.0, 0.0)
+    glEnd()
+    glPopMatrix()
 
+    glPushMatrix()
+    glTranslate(-0.6, -0.1, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.04, 0.0)
+    glVertex3f(0.5, 0.04, 0.0)
+    glVertex3f(0.5, 0.0, 0.0)
+    glEnd()
+    glPopMatrix()
 
+    glPushMatrix()
+    glTranslate(-0.5, 0.05, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.04, 0.0, 0.0)
+    glVertex3f(0.04, 0.4, 0.0)
+    glVertex3f(0.0, 0.4, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.6, -0.1, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.04, 0.0, 0.0)
+    glVertex3f(0.04, 0.55, 0.0)
+    glVertex3f(0.0, 0.55, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.5, 0.45, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.04, 0.0)
+    glVertex3f(0.6, 0.04, 0.0)
+    glVertex3f(0.6, 0.0, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.76, 0.45, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.04, 0.0)
+    glVertex3f(0.2, 0.04, 0.0)
+    glVertex3f(0.2, 0.0, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.85, 0.56, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.04, 0.0)
+    glVertex3f(0.95, 0.04, 0.0)
+    glVertex3f(0.95, 0.0, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.5, 0.34, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.04, 0.0)
+    glVertex3f(0.6, 0.04, 0.0)
+    glVertex3f(0.6, 0.0, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.4, 0.15, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.04, 0.0, 0.0)
+    glVertex3f(0.04, 0.2, 0.0)
+    glVertex3f(0.0, 0.2, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.295, 0.01, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.04, 0.0, 0.0)
+    glVertex3f(0.04, 0.2, 0.0)
+    glVertex3f(0.0, 0.2, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.298, 0.28, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.04, 0.0, 0.0)
+    glVertex3f(0.04, 0.08, 0.0)
+    glVertex3f(0.0, 0.08, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.2, 0.2, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.04, 0.0, 0.0)
+    glVertex3f(0.04, 0.08, 0.0)
+    glVertex3f(0.0, 0.08, 0.0)
+    glEnd()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.2, 0.25, 0.0)
+    glBegin(GL_QUADS)
+    glColor3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.0, 0.0)
+    glVertex3f(0.0, 0.04, 0.0)
+    glVertex3f(0.6, 0.04, 0.0)
+    glVertex3f(0.6, 0.0, 0.0)
+    glEnd()
+    glPopMatrix()
 
 
 def dibujar():
-    
+    caminos()
     paredes3()
     paredes2()
-    paredes1()
-    paredes()
+    #paredes1()
+    #paredes()
     dibujarObstaculo()
     dibujarCarrito()
 
