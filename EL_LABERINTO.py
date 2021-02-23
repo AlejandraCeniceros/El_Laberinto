@@ -5,8 +5,8 @@ import glfw
 xObstaculo = 0.0
 yObstaculo = 0.0
 
-xCarrito = 0.0
-yCarrito = 0.0
+xCarrito = -0.7
+yCarrito = 0.75
 
 colisionando = False
 

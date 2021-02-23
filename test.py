@@ -6,7 +6,7 @@ xLaberinto1 = 0.0
 yLaberinto1 = 0.0
 
 xCarrito = 0.0
-yCarrito = 0.0
+yCarrito = 0.8
 
 colisionando = False
 
