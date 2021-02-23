@@ -1,12 +1,15 @@
 from OpenGL.GL import *
 from glew_wish import *
 import glfw
+from math import *
+
+
 
 xObstaculo = 0.0
 yObstaculo = 0.0
 
-xCarrito = -0.7
-yCarrito = 0.75
+xCarrito = -0.72
+yCarrito = 0.73
 
 colisionando = False
 
@@ -72,8 +75,6 @@ def dibujarCarrito():
     glEnd()
     glPopMatrix()
 
-
-
 def dibujarObstaculo():
 
     global xObstaculo
@@ -90,7 +91,6 @@ def dibujarObstaculo():
     glEnd()
     glPopMatrix()
 
-
 def paredes1():
     glPushMatrix()
     glTranslate(xObstaculo, yObstaculo, 0.0)
@@ -102,7 +102,6 @@ def paredes1():
     glVertex3f(-0.1, -0.0,0.0) 
     glEnd()
     glPopMatrix()
-
     
 
 def paredes2():
@@ -945,10 +944,17 @@ def caminos():
     glEnd()
     glPopMatrix()
 
-    
+def start():
+    glColor3f(0.0, 0.7, 0.0)
+    glBegin(GL_POLYGON)
+    for x in range(360):
+        angulo = x * 3.14159 / 180.0
+        glVertex3f(cos(angulo) * 0.10 - 0.72 ,sin(angulo) * 0.05 + 0.73,0.0)
+    glEnd()   
 
 
 def dibujar():
+    start()
     caminos()
     paredes3()
     paredes2()
